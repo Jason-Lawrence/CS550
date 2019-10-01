@@ -1,0 +1,19 @@
+Starting Central Indexing Server
+socket is now active
+Connected to : 198.37.25.70 : 60241
+ADDING FILE: nineKB.txt
+ADDING FILE: oneKB.txt
+ADDING FILE: sixKB.txt
+ADDING FILE: tenKB.txt
+ADDING FILE: threeKB.txt
+ADDING FILE: twoKB.txt
+Connected to : 198.37.25.70 : 60248
+Sending file catalog
+Client exited
+Connected to : 198.37.25.70 : 60255
+Searching for file: sixKB.txt
+Client disconnected
+Connected to : 198.37.25.70 : 60265
+Searching for file: testing
+Client disconnected
+Client exited

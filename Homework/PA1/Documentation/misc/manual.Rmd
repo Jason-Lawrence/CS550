@@ -1,0 +1,109 @@
+---
+title: "Manual"
+author: "Alec Buchanan & Jason Lawrence"
+date: "September 21, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Setup
+
+## 1.1 Windows 10
+
+Windows 10 was the operating system used to build and test ther peer and index server.
+
+### 1.2 Python 3.7
+
+The peer and index server were both built and tested using python 3.7 on Windows 10.
+
+#### 1.2.1 Downloading
+
+Python 3.7 can be downloaded from their website at:
+https://www.python.org/downloads/ 
+
+#### 1.2.2 Configuration and Installation
+
+1. Run the python 3.7 installer and follow the on screen instructions
+2. record the directory that the python.exe was saved in
+3. Add the python directory to the global PATH variable
+
+**Note: How to add to PATH variable**<br/>
+
+1. open file explore
+2. right click *This PC*
+3. *properties*
+4. *Advanced system settings*
+5. *Environment Variables*
+6. *System variables*
+7. click *path*
+8. click edit
+9. add python.exe directory to PATH
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\ChangeEnvVar.png "")
+
+### 1.3 Peer
+
+#### 1.3.1 Installation
+
+1. Download peer
+2. unzip peer if compressed
+
+#### 1.3.2 Configuration
+
+The configuration file is *globals.py* located in *\\peer\\bin*. 
+The lines that need to be updated are:<br />
+**10**. INDEX_SERVER_IP = the ip address of the index server<br/>
+**15**. LOCAL_SHARED_FILE_SPACE = the path of the shared space directory
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\globalsVar.png "")
+
+### 1.4 Index Server
+
+#### 1.4.1 Installation
+
+1. Download index server
+2. unzip index server if compressed
+
+## 2. Running
+
+### 2.1 Peer
+
+1. make sure peer is properly configured 
+2. ```python <bin directory>\main.py```
+3. Enter data as prompted
+
+**Special Commands**:<br/>
+*search*: asks the index server for a list of available files<br/>
+*exit*: exits the program<br/>
+*test.txt*: performs a test by reading the test.txt file<br/>
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\PeerRunning.png "")
+
+### 2.2 Index Server
+
+```python <location>\centralIndexingServer.py```<br/>
+The server will start and wait for connections
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\indexServerRunning.png "")
+
+## 3. Test Case
+
+### 3.1 Test 1
+
+This test consisted of having one peer connected and querying the index server for 500 files. The average response time in seconds is shown bellow.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\SinglePeerOutput.jpg "")
+
+
+### 3.2 Test 2
+
+This test consisted of having three peers connected and querying the index server for 500 files. The average response time in seconds is shown bellow.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\testtime500.png "")
+
+### 3.3 More Tests
+
+Check test.pdf for more information on testing

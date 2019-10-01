@@ -1,0 +1,146 @@
+---
+title: "Testing"
+author: "Alec Buchanan & Jason Lawrence"
+date: "Oct 12, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tests
+
+### Test 1: Broadcast Multiple Query Hits
+
+1. *Peer client 0* asks for nineKB.txt
+2. *super peer 0* broad casts the query to all other super peers
+3. *super peer 0* gathers all the query hits
+4. *super peer 0* sends *Peer client 0* a list of query hits
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\broadcastMultiHit.png "")
+
+### Test 2: Broadcast Multiple  Misses
+
+
+1. *Peer client 0* asks for a non existent  file
+2. *super peer 0* broad casts the query to all other super peers
+3. *super peer 0* gets no query hits
+4. *super peer 0* sends *Peer client 0* an empty list
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\broadcastMultiMiss.png "")
+
+### Test 3: Linear Query In Loop
+
+
+1. *Peer client 0* asks for file
+2. *super peer 0* sends a query to *super peer 1*
+3. *super peer 1* forwards the query to *super peer 2*
+4. *super peer 2* forwards the query to *super peer 0*
+5. *super peer 0* recognizes the query because of the message id and closes the connections
+6. *super peer 0* sends *Peer client 0* an empty list
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearLoopDetection.png "")
+
+
+### Test 4: Linear Multiple Query Hits
+
+1. *Peer client 0* asks for file
+2. *super peer 0* sends a query to *super peer 1*
+3. *super peer 1* registers a query hit and sends it to *super peer 0*
+4. *super peer 1* forwards the query to *super peer 2*
+5. *super peer 2* registers a query hit and sends it to *super peer 1*
+6. *super peer 1* forwards the query hit to *super peer 0*
+7. *super peer 0* gets all of the query hits
+8. *super peer 0* sends *Peer client 0* all the query hits
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearMultiHit.png "")
+
+### Test 5: Linear Multiple Misses
+
+1. *Peer client 0* asks for file
+2. *super peer 0* sends a query to *super peer 1*
+4. *super peer 1* forwards the query to *super peer 2*
+7. *super peer 0* does not get any query hits before connection is closed
+8. *super peer 0* sends *Peer client 0* an empty list
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearMultiMiss.png "")
+
+### Test 6: Linear TTL Expires
+
+1. *Peer client 0* asks for file
+2. *super peer 0* sends a query to *super peer 1*
+3. *super peer 1* forwards the query to *super peer 2*
+4. *super peer 1* recognizes that the TTL is 0 and closes the connections
+5. *super peer 0* sends *Peer client 0* an empty list
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearTTLexpire.png "")
+
+<!--
+### Test 1: Broadcast Search
+
+1. *Peer client* asks for eightKB.txt which is not registered under the local index server
+2. *Super Peer* broadcasts message to all super peers
+3. *Super Peer* receives query hits
+3. *Super Peer* forwards query hits to *client*
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\broadcastSearch.png "")
+
+### Test 2: Broadcast search to unriegistered file
+
+1. *Peer client* asks for hello.txt which is not registered under any index server
+2. *Super peer* broadcasts message to all super peers
+3. *Super peer* recognizes that there were no query hits
+4. *Super peer* sends an empty list to client indicating no results
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\broadcastUnregistered.png "")
+
+### Test 3: Linear Search For File
+
+1. *Peer client* asks for file using a linear topology
+2. *Super peer* gets query and forwards the query to its neighbor
+3. *Super peer* compiles all the query hits into a list to send back to the client
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearSearch.png "")
+
+### Test 4: Linear Search For File Not Registered
+
+1. *Peer client* asks for file using a linear topology
+2. *Super peer* gets query and forwards the query to its neighbor
+3. *Super peer* does not get any query hits before the connection is closed 
+4. *Super peer* send the client an empty list
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\linearUnregistered.png "")
+
+### Test 5: Startup and Initialization
+
+1. *Super peer 1* Starts up and listens for requests and registrations
+2. *Super peer 2* Starts up and listens for requests and registrations
+3. *Peer client 1* Starts up and registers file with super peer
+4. *Peer client 2* Starts up and registers file with super peer
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\Startup.png "")
+
+### Test 6: Switch Topologies
+
+1. *Peer client* reads switch topology request from user
+2. *Peer client* sends topology request to super peer
+3. *Super peer* gets new topology request and switches topologies
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\topologyChange.png "")
+
+
+
+### Test 7: Check Current Topology
+
+1. *Peer client* reads the *topology* command from the user
+2. *Peer client* asks the super peer what topology it is currently using.
+3. *Super peer* checks the current topology and responds to the peer
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\TopologyQuery.png "")
+
+-->
+
+## Known Issues
+
+### Issue 1: 

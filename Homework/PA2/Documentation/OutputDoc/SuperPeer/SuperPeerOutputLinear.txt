@@ -1,0 +1,38 @@
+[info] Linear lib: Now listening for other super peers
+[info] Super Peer: Starting Super Peer
+[info] Broadcast lib: Socket for Super Peers is now active
+[info] Super Peer: Socket for Leaf Nodes is now active
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65291
+[info] Super Peer: Peer connected, PeerID: 0
+[info] Super Peer: Peer 0 adding file: oneKB.txt
+[info] Super Peer: Peer 0 adding file: sevenKB.txt
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65293
+[info] Super Peer: Peer connected, PeerID: 1
+[info] Super Peer: Peer 1 adding file: eightKB.txt
+[info] Broadcast lib: Connected to Super Peer at: 198.37.24.124 : 65314
+[info] Broadcast lib: Searching for file: threeKB.txt
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65327
+[info] Super Peer: Sending file catalog
+[info] PRINTING ALL FILES ON THE GRID
+[info] Files stored at peer: 0
+Filename: oneKB.txt
+Filename: sevenKB.txt
+[info] Files stored at peer: 1
+Filename: eightKB.txt
+[info] END OF FILES
+[info] Super Peer: Client 1 exited
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65328
+[info] Super Peer: Searching for file: twoKB.txt
+[info] Super Peer: File twoKB.txt was not found locally
+[info] Super Peer: Searching other Peers via Linear Search
+[info] Linear lib: connecting to neighbor 198.37.24.124:8006
+[info] Linear lib: connected to neighbor
+[info] Linear lib: Query hit at 198.37.24.124:4013
+[info] Linear lib: Query hit at 198.37.24.124:4015
+[info] Linear lib: Query hit at 198.37.24.124:4017
+[info] Super Peer: Client 1 exited
+[info] Super Peer: Peer 1 adding file: twoKB.txt
+
+
+
+

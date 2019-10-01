@@ -1,0 +1,52 @@
+Starting Peer
+Starting Peer Server
+* Peer Server: connecting to index server...
+* Peer Server: Connected to index server
++ Peer Server: Change to file: fourKB.txt
++ Peer Server: Change to file: oneKB.txt
++ Peer Server: Change to file: sixKB.txt
++ Peer Server: Now listening for other peers
++ Peer Client: Client starting...
++ Peer Client: Client started
+
+
+----------- Special Commands -----------
+search: retreives list of registered files
+exit: exits the program
+linear: changes the topology to be linear
+broadcast: changes the topolgy to be broadcast
+topology: returns the current topology
+----------------------------------------
+What file do you want?
+search
+
+fourKB.txt
+oneKB.txt
+sixKB.txt
+fiveKB.txt
+twoKB.txt
+
+
+
+----------- Special Commands -----------
+search: retreives list of registered files
+exit: exits the program
+linear: changes the topology to be linear
+broadcast: changes the topolgy to be broadcast
+topology: returns the current topology
+----------------------------------------
+What file do you want?
+threeKB.txt
++ Peer Client: Looking for 'threeKB.txt' on: 4014
++ Peer Client: retreived file: 'threeKB.txt'
+
+
+----------- Special Commands -----------
+search: retreives list of registered files
+exit: exits the program
+linear: changes the topology to be linear
+broadcast: changes the topolgy to be broadcast
+topology: returns the current topology
+----------------------------------------
+What file do you want?
++ Peer Server: Change to file: threeKB.txt

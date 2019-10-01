@@ -1,0 +1,43 @@
+[info] Linear lib: Now listening for other super peers
+[info] Super Peer: Starting Super Peer
+[info] Broadcast lib: Socket for Super Peers is now active
+[info] Super Peer: Socket for Leaf Nodes is now active
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65299
+[info] Super Peer: Peer connected, PeerID: 0
+[info] Super Peer: Peer 0 adding file: fourKB.txt
+[info] Super Peer: Peer 0 adding file: oneKB.txt
+[info] Super Peer: Peer 0 adding file: sixKB.txt
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65300
+[info] Super Peer: Peer connected, PeerID: 1
+[info] Super Peer: Peer 1 adding file: fiveKB.txt
+[info] Super Peer: Peer 1 adding file: oneKB.txt
+[info] Super Peer: Peer 1 adding file: twoKB.txt
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65307
+[info] Super Peer: Sending file catalog
+[info] PRINTING ALL FILES ON THE GRID
+[info] Files stored at peer: 0
+Filename: fourKB.txt
+Filename: oneKB.txt
+Filename: sixKB.txt
+[info] Files stored at peer: 1
+Filename: fiveKB.txt
+Filename: oneKB.txt
+Filename: twoKB.txt
+[info] END OF FILES
+[info] Super Peer: Client 0 exited
+[info] Super Peer: Connected to Leaf Node at: 198.37.24.124 : 65308
+[info] SuperPeer: Searching for file: threeKB.txt
+[info] Super Peer: File threeKB.txt was not found locally
+[info] Super Peer: Searching other Peers via Broadcast Search
+[info] Broadcast lib: Response from Super Peer: 0 : []
+[info] Broadcast lib: Response from Super Peer: 1 : [('198.37.24.124', 4002)]
+[info] Broadcast lib: Response from Super Peer: 2 : [('198.37.24.124', 4004)]
+[info] Broadcast lib: Response from Super Peer: 3 : [('198.37.24.124', 4006)]
+[info] Broadcast lib: Response from Super Peer: 4 : [('198.37.24.124', 4009)]
+[info] Broadcast lib: Response from Super Peer: 5 : []
+[info] Broadcast lib: Response from Super Peer: 6 : [('198.37.24.124', 4012), ('198.37.24.124', 4013)]
+[info] Broadcast lib: Response from Super Peer: 7 : [('198.37.24.124', 4014)]
+[info] Broadcast lib: Response from Super Peer: 9 : [('198.37.24.124', 4019)]
+[info] Super Peer: Boadcast lib: All query hits [('198.37.24.124', 4002), ('198.37.24.124', 4004), ('198.37.24.124', 4006), ('198.37.24.124', 4009), ('198.37.24.124', 4012), ('198.37.24.124', 4013), ('198.37.24.124', 4014), ('198.37.24.124', 4019)]
+[info] Super Peer: Client 0 exited
+[info] Super Peer: Peer 0 adding file: threeKB.txt

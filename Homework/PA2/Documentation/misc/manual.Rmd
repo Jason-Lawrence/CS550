@@ -1,0 +1,129 @@
+---
+title: "Manual"
+author: "Alec Buchanan & Jason Lawrence"
+date: "October 11, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Setup
+
+## 1.1 Windows 10
+
+Windows 10 was the operating system used to build and test the peer and index server.
+
+### 1.2 Python 3.7
+
+The peer and index server were both built and tested using python 3.7 on Windows 10.
+
+#### 1.2.1 Downloading
+
+Python 3.7 can be downloaded from their website at:
+https://www.python.org/downloads/ 
+
+#### 1.2.2 Configuration and Installation
+
+1. Run the python 3.7 installer and follow the on screen instructions
+2. record the directory that the python.exe was saved in
+3. Add the python directory to the global PATH variable
+
+**Note: How to add to PATH variable**<br/>
+
+1. open file explorer
+2. right click *This PC*
+3. *properties*
+4. *Advanced system settings*
+5. *Environment Variables*
+6. *System variables*
+7. click *path*
+8. click edit
+9. add python.exe directory to PATH
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\ChangeEnvVar.png "")
+
+### 1.3 Peer
+
+#### 1.3.1 Installation
+
+1. Download peer
+2. unzip peer if compressed
+
+#### 1.3.2 Configuration
+
+The configuration file is *peerN.conf* located in *\\PA2\\LeafNode\\conf*. 
+The order of which variables go on which lines is important:<br />
+**1**. PEER_SERVER_PORT = Port for the peer server to listen on<br/>
+**2**. P2P_PORT = The port that the peer server registers the peer on<br/>
+**3**. INDEX_SERVER_IP = IP address of the index server<br/>
+**4**. INDEX_SERVER_PORT = Port of the index server<br/>
+**5**. LOCAL_SHARED_FILE_SPACE = Directory of shared file space<br/>
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\PeerConf.png "")
+
+### 1.4 Index Server
+
+#### 1.4.1 Installation
+
+1. Download index server
+2. unzip index server if compressed
+
+#### 1.4.2 Configuration
+
+The configuration file is *peerserverN.conf* located in *\\PA2\\superpeer\\conf*. The order of which variables are placed on which lines are important: <br/>
+
+**1** LOCAL_PORT = The port to listen for linear topology queries on<br/>
+**2** NEIGHBOR_IP = The neighbor ip address for linear topologies<br/>
+**3** NEIGHBOR_PORT = The neighbor super peer port for linear topology<br/>
+**4** SUPER_PEER_PORT_BROADCAST = Super peer <br/>
+**5** SUPER_PEER_ID = Super peer id<br/>
+**6** LEAF_NODE_PORT = Port to listen for leaf nodes on<br/>
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\SuperPeerConf.png "")
+
+## 2. Execution
+
+### 2.1 Peer
+
+1. make sure peer is properly configured 
+2. ```python <bin directory>\main.py ..\conf\peer0.conf```
+3. Enter data as prompted
+
+**Special Commands**:<br/>
+*search*: retreives list of registered files on the local index server<br/>
+*exit*: exits the program<br/>
+*linear*: changes the topology to be linear<br/>
+*broadcast*: changes the topology to be broadcast<br/>
+*topology*: returns the current topology<br/>
+
+*Notice: The super peer needs to know what topology to use. Using the commands above tells the super peer what topology to use.*
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\peerStartup.png "")
+
+### 2.2 Super Peer
+
+```python <super-peer-bin>\main.py ..\conf\superPeer0.conf```<br/>
+The server will start and wait for connections. Any configuration will be done through the conf file.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\superPeerStatrup.png "")
+
+## 3. Test Case
+
+### 3.1 Test 1
+
+This test is used to show that files can be found using linear topology and broadcast topology. 
+
+**Steps**<br/>
+
+1. Verify the topology is set to Broadcast
+2. Peer request file that is registered under a different super peer and print a message acknowledging the download and all queryhits
+3. Switch topologies to linear topology
+4. Peer request file that is registered under a different super peer and print a message acknowledging the download and all query hits
+
+![](C:\Users\abuch\Documents\classes\CS550\PA2\Documentation-PA2\misc\tests\topologyChange.png "")
+
+### 3.2 More Tests
+
+Check test.pdf for more information on testing

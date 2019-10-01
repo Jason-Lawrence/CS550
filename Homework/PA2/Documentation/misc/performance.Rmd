@@ -1,0 +1,27 @@
+---
+title: "Performance"
+author: "Alec Buchanan & Jason Lawrence"
+date: "October 14, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<center>
+
+![](C:\Users\abuch\Desktop\pa2performace.png "")
+</center>
+
+<br/>
+
+As the linear topology scales out with more clients, it sees a more rapid increase in hit latency as opposed to broadcasting.
+
+<br/>
+
+```{r}
+
+read.csv(file="C:\\Users\\abuch\\Desktop\\pa2Performance.csv", header=TRUE, sep=",")
+
+```

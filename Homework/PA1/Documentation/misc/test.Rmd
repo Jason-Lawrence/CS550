@@ -1,0 +1,32 @@
+---
+title: "Testing"
+author: "Alec Buchanan & Jason Lawrence"
+date: "September 22, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tests
+
+### Test 1: 500 index server queries
+
+When the peer client prompts the user for input there is an option to input test.txt. This will start reading from the test file which contains 500 names of files. The peer client will then query the index server for all of the file names and record the average response time. After running multiple tests, the average average response time was 0.01sec.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\testtime500.png "")
+
+### Test 2: 3 Peer connections at the same time
+
+### Test 3: Index server goes down
+
+### Test 4: If file is not registered with index server
+
+### Test 5: Transfering a 10KB file
+
+## Known Issues
+
+### Issue 1: Index server response too large
+
+When the peer client searches the index server for a specific file, the index server responds with a list of peer servers. Currently, there is no mechanism to handle an index server response of over 1024 Bytes. Anything in the response past the 1024th Byte will be cut off.

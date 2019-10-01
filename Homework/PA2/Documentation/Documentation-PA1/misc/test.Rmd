@@ -1,0 +1,66 @@
+---
+title: "Testing"
+author: "Alec Buchanan & Jason Lawrence"
+date: "September 22, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tests
+
+### Test 1: 500 index server queries with only one peer
+
+Tests to find out the average response time of a search request from the client. The client does 500 sequential searches. Each search time is summed up and then divided by 500 and the average response time is found.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\SinglePeerOutput.jpg "")
+
+### Test 2: 500 index server queries with multiple peers
+
+When the peer client prompts the user for input there is an option to input test.txt. This will start reading from the test file which contains 500 names of files. The peer client will then query the index server for all of the file names and record the average response time. After running multiple tests, the average average response time was 0.01sec.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\testtime500.png "")
+
+### Test 3: 3 Peer connections at the same time
+
+The screenshot below shows the output of the index server. Three seperate users have connected and there was no idication of a client disconnecting.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test3.png "")
+
+### Test 4: Index server goes down
+
+When the index server goes down and the client trys to query it, the client gives an error "Failed to connect to index server."
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test4.png "")
+
+### Test 5: If file is not registered with index server
+
+The cient requests peers that host the nonexistent file. The index server does not find any peers that host that file so an empty array is sent. Optimally the list would be populated with peers that are hosting that file. The client recognizes the empty list and understands that the file can not be located.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test5.png "")
+
+### Test 6: Transfering a 10KB file
+
+The peer server and client sends and receives the file in 1KB chunks. To verify that the file was being transfered successfully we sent the file and verified the file size after.
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test6p1.png "")
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test6p2.png "")
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test6p3.png "")
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test6p4.png "")
+
+### Test 7: Accuracy of the data structure
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test7p1.png "")
+
+![](C:\Users\abuch\Documents\classes\CS550\PA1\Documentation\misc\test7p2.png "")
+
+## Known Issues
+
+### Issue 1: Index server response too large
+
+When the peer client searches the index server for a specific file, the index server responds with a list of peer servers. Currently, there is no mechanism to handle an index server response of over 1024 Bytes. Anything in the response past the 1024th Byte will be cut off.
